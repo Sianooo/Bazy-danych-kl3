@@ -1,0 +1,144 @@
+/* Reset stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ogólne stylowanie ciała */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Nagłówek */
+h1 {
+    margin-bottom: 20px;
+    color: #2980b9;
+}
+
+/* Sekcja logowania */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #bdc3c7;
+}
+
+th {
+    background-color: #2980b9;
+    color: white;
+}
+
+td {
+    color: #2c3e50;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Etykiety */
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Pola wejściowe */
+.inp {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Pola wejściowe: Focus */
+.inp:focus {
+    border-color: #2980b9;
+    outline: none;
+}
+
+/* Ogólne stylowanie przycisków */
+.button {
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+    background-color: #1a5276;
+    transform: scale(1.05);
+}
+
+/* Stylowanie przycisków dla poszczególnych elementów */
+.button-buy {
+    background-color: #27ae60;
+}
+
+.button-buy:hover {
+    background-color: #229954;
+}
+
+/* Koszyk */
+.koszyk-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 600px;
+}
+
+/* Przycisk anulowania */
+.button-cancel {
+    background-color: #c0392b;
+}
+
+.button-cancel:hover {
+    background-color: #e74c3c;
+}
+
+/* Stopka */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #7f8c8d;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container, .koszyk-container {
+        width: 90%;
+    }
+}
+
