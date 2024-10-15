@@ -1,0 +1,8 @@
+BAZY DANYCH NOTATKI:
+CREATE DATABASE nazwaDB->sluzy do tworzenia bazy danych
+
+USE nazwaDB->to znaczy uzyj tego poleceniana na tej bazie danch
+
+CREATE TABLE nazwaTabeli (colum1 typ danych,column2 typ danych);
+
+INSERT INTO nazwaTabeli(klumna1,kolumna2,kloumna3)VALUES(wartosc1,waryosc2)->dodawanie zawartosci do tabeli
