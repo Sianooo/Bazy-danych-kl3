@@ -6,3 +6,59 @@ USE nazwaDB->to znaczy uzyj tego poleceniana na tej bazie danch
 CREATE TABLE nazwaTabeli (colum1 typ danych,column2 typ danych);
 
 INSERT INTO nazwaTabeli(klumna1,kolumna2,kloumna3)VALUES(wartosc1,waryosc2)->dodawanie zawartosci do tabeli
+
+SELECT * FROM klienci;=> wyswietlanie calej tablicy
+
+SELECT DISTINCT kraj from klienci; =>niepowtarzalne wiersze
+
+SELECT COUNT(DISTINCT Kraj)FROM klienci; =>poda wartosc unikalna w postaci cyfry
+
+SELECT * FROM klienci WHERE Kraj='polska'; =>wyciaganie konkretnej rzeczy z duzej bazy danych
+
+SELECT *FROM klienci WHERE ImieKlienta BETWEEN 'c' AND 'k'; =>uzywanie  between
+
+SELECT *FROM klienci WHERE IdKlienta > 2 AND IdKlienta <8; 
+
+SELECT *FROM klienci WHERE ImieKlienta LIKE 's%'; PRZYKALD: S%=>Sophie S z przodu, %S S z tylu Pophis
+
+SELECT Miasto from klienci WHERE Miasto LIKE '_a%'; => wyswietlanie miast z 2 literka a
+
+SELECT * FROM klienci WHERE Miasto LIKE "_a%";=> Warszawa sama literka!
+SELECT * FROM klienci WHERE Miasto LIKE "%i_"; =>i przed ostatnie Szczecin
+SELECT * FROM klienci WHERE nazwiskoKlienta between 'b' and 'm'; =>nazwiska pomiedzy b-m
+
+Wyswietl klientow z polski, niemiec,francji z id od 2 do 6 i miasta z litera a w dowolnym miejscu:
+SELECT * FROM klienci WHERE Kraj='Polska'or Kraj='Niemcy' or Kraj='Francja' AND (IdKlienta BETWEEN 2 and 6) and Miasto LIKE '%a%'; 
+
+SELECT * FROM Klienci WHERE Miasto IN ('Warszawa','London')=> caly ciag znakow! szukanie wieciej niz 1 zmiennej wypluje warszawe i londyn
+
+WHERE:
+AND jesli wszytskie warunki sa prawdziwe 
+OR jeden z wyrazow jest prawdziwy
+NOT warunki sa nie prawdziwe
+
+SKLADNIA NOT:
+NOT jesli warunek nie jest prawdziwy: SELECT * FROM Klienci WHERE not Kraj = "Niemcy"; 
+
+ZADANIE: WYSWIELT WSZYTSKICH POLAKOW , NIEMOCW LUB AMERYKANOW KTORZY MAJA LITERE A LUB B LUB M W DOWOLNYM MIEJSCU IMIENIA, POCHODZA Z MIASTA
+Z LITERA A W DOWOLNYM MIEJSCU A ICH KOD POCZTOWY TOMA ZNAK -  :
+
+select * from klienci where kraj in ('polska','Niemcy','USA') and(ImieKlienta like '%a%' or ImieKlienta like '%b%' or ImieKlienta like '%m%') and Miasto like "%a%" and KodPocztowy like "%-%"; 
+
+SKLADNIA ORDER BY:(sortowanie)
+ASC=>od 1 do 100
+DESC=> od 100 do 1
+
+SELECT * FROM `klienci` ORDER BY IdKlienta desc,ImieKlienta desc; 
+SELECT * FROM `klienci` ORDER BY Miasto asc; => BERLIN ZACZNIE SIE
+
+ZADANIE: WYSWIETLNAZWISKA MALEJACO KLIENTOW POCHODZACYCH Z POLSKI LUB USA LUB FRANCJI MAJACYCH W NAZWIE MIASTA PRZEDOSTATNIA LITERE 
+W   A W IMIENIU MOGA MIEC LITERE A,B,C,M W DOWOLNYM MUEJSCU:
+
+SELECT NazwiskoKlienta from klienci WHERE Kraj in('Polska','USA','Francja') and Miasto like '%w_' and (ImieKlienta like '%a%' or ImieKlienta like '%b%' or ImieKlienta like '%c%' or ImieKlienta like '%m%') ORDER by NazwiskoKlienta desc; 
+
+ZADANIE:
+
+SELECT * FROM klienci WHERE (NazwiskoKlienta BETWEEN 'C' AND 'R') and kraj in('Polska','Niemcy','Francja') and IdKlienta >2 ORDER by IdKlienta desc; 
+
+
