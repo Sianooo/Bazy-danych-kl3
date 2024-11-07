@@ -62,3 +62,61 @@ ZADANIE:
 SELECT * FROM klienci WHERE (NazwiskoKlienta BETWEEN 'C' AND 'R') and kraj in('Polska','Niemcy','Francja') and IdKlienta >2 ORDER by IdKlienta desc; 
 
 
+
+ODPOWIEDZ:
+
+SELECT COUNT(DISTINCT Kraj)FROM klienci;
+
+Wypisz cala tabele (IdKlienta) dla klientow od 1 do 8 ktorzy nie sa niemcami w miescie maja litere w dowolnym miejscu A:
+
+SELECT * FROM `klienci` WHERE (IdKlienta BETWEEN 1 and 8 ) and kraj!='Niemcy' and Miasto like '%a%'; 
+
+SELECT * FROM `klienci` WHERE ImieKlienta BETWEEN 'b' and 'g'; 
+
+SELECT DISTINCT kraj from klienci; 
+
+
+NULL:
+
+SELECT * FROM `klienci` WHERE ImieKlienta IS NULL; => jak cos jest nullem to to wypisze ( w tym przykladzie nic nie wypisze)
+
+SELECT * FROM `klienci` WHERE Kraj IS NOT NULL; => tu wyswietli wszytsko cala tabele
+
+
+
+ALTER TABLE : dodawanie zawartosci do tablicy:
+
+ALTER TABLE klienci ADD COLUMN Samochod varchar(40); => doda na sam koniec (standardowo na koncu )
+
+ALTER TABLE klienci ADD COLUMN Nowa date FIRST; => stworzy kolumne jest null ale ma zawartosc date a first doda kolumne na poczatek tablicy
+
+ALTER TABLE klienci ADD COLUMN Haslo text after/before NazwiskoKlienta; => doda kolune haslo za Nazwiskiem Klienta (mozna ustawiac w dowolny sposob)
+
+
+USUWANIE KOLUMN!!:
+
+ALTER TABLE klienci DROP COLUMN Haslo; => USUWA HASLO 
+
+
+ZMIANA NAZW:!!
+
+ALTER TABLE klienci CHANGE COLUMN IdKlienta lp int; => najpierw stara => zamiana na nowa + typ
+
+
+ZMIANA TYPU KOLUMNY:
+
+ALTER TABLE klienci CHANGE COLUMN lp lp varchar(50);
+
+
+UPDATE:
+
+UPDATE klienci SET ImieKlienta="Andrzej" , NazwiskoKlienta="Duda" WHERE lp =1; => zamiana nazwy 1 ziomka zawsze pisz id ! bo zmieni wszytskich!
+
+UPDATE klienci SET ImieKlienta="Andrzej"; => wszyscy sie zmienili na Andrzej (imie u kazdego)
+
+delete from klienci where Kraj="Niemcy"; => usunie Niemcy 
+
+
+
+
+
