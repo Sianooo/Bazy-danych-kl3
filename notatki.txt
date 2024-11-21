@@ -116,7 +116,77 @@ UPDATE klienci SET ImieKlienta="Andrzej"; => wszyscy sie zmienili na Andrzej (im
 
 delete from klienci where Kraj="Niemcy"; => usunie Niemcy 
 
+ODPOWIEDZ 2:
 
+alter table klienci change column Kraj  Kraj date;
+
+alter table klienci change column IdKlienta lp int; 
+
+delete from klienci where lp =12; => usuwa 12 wers!
+
+INSERT into klienci(lp) VALUES (19); => dodawanie 19 wersu
+
+SELECT * FROM `klienci` WHERE kraj !='Niemcy' and Miasto like '__r%' and (NazwiskoKlienta like '%a%' or NazwiskoKlienta like '%b%' or NazwiskoKlienta like '%c%'); 
+
+
+ZADANIE NA LEKCJI:
+
+create database Krakow;
+
+create table dzielnice (Lp int, NazwaDzielnicy text,LiczbaMieszkancow text)
+
+INSERT into dzielnice(Lp,NazwaDzielnicy,LiczbaMieszkancow) VALUES (4,"Zablocie",50000);
+
+SELECT * FROM `dzielnice` order by NazwaDzielnicy desc; 
+
+alter table dzielnice CHANGE COLUMN LiczbaMieszkancow Mieszkancy text; 
+
+alter table dzielnice add column Daty date; 
+
+INSERT into dzielnice VALUES(5,"","",'2024-11-14'); 
+
+alter table dzielnice drop COLUMN Lp; 
+
+alter table dzielnice CHANGE column NazwaDzielnicy MojKrakow text; 
+
+drop DATABASE krakow; 
+
+
+USER :
+
+drop user Patryk;
+
+CREATE USER 'Patryk'@'localhost' IDENTIFIED BY 'password';
+
+GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+
+
+LIMIT:
+
+SELECT * FROM `klienci` LIMIT 3;  /  SELECT * FROM `klienci` WHERE IdKlienta BETWEEN 1 and 3
+
+MAX:
+
+SELECT MAX(IdKlienta) from klienci; => dziala na cyfrach i literach wyswietla najwyzsza wartosc
+
+MIN:
+
+SELECT MIN(OsobaKontaktowa) from klienci; => dziala na cyfrach i literach wyswietla najnizsza wartosc
+
+AVG:
+
+SELECT AVG(ImieKlienta) from klienci; => srednia wylicza (nie dziala z literami)
+SELECT AVG(IdKlienta) from klienci;=> to zadziala
+
+SUM:
+
+SELECT SUM(IdKlienta) from klienci;  => wylicza sume (nie dziala z literami)
+
+COUNT:
+
+SELECT COUNT(DISTINCT kraj) from klienci; => sprawdza ile wierszy spelnia okreslony warunek
+
+SELECT COUNT(IdKlienta) from klienci WHERE Kraj='Polska';
 
 
 

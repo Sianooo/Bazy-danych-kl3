@@ -1,0 +1,15 @@
+pomiedzy id klienta a imie klienta wstawic kolumne i w wierszu 8 z dzisiejsza data
+alter table klienci add column samochodzik date after IdKlienta
+UPDATE klienci set Samochodzik='2024-11-21' WHERE IdKlienta=8; 
+
+usun kolumne z dziwsiejsza data
+alter table klienci drop COLUMN Samochodzik;
+
+wyswietl wszytskich niemcow ktorzy maja w imienu literke A w dowolnym miejscu imienia
+SELECT * FROM `klienci` WHERE Kraj="Niemcy" and ImieKlienta like '%a%'; 
+
+wyswietl wszytstkich klientow polakow i niemcow oraz imie z zakrezsu od c do p
+SELECT * FROM `klienci` WHERE Kraj in('Polska','Niemcy') and ImieKlienta BETWEEN 'c' and 'p'; 
+
+usun 7 wiersz
+delete from klienci where IdKlienta=7; 
