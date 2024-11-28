@@ -1,3 +1,5 @@
+ODPOWIEDZ 1:
+
 pomiedzy id klienta a imie klienta wstawic kolumne i w wierszu 8 z dzisiejsza data
 alter table klienci add column samochodzik date after IdKlienta
 UPDATE klienci set Samochodzik='2024-11-21' WHERE IdKlienta=8; 
@@ -13,3 +15,23 @@ SELECT * FROM `klienci` WHERE Kraj in('Polska','Niemcy') and ImieKlienta BETWEEN
 
 usun 7 wiersz
 delete from klienci where IdKlienta=7; 
+
+
+
+ODPOWIEDZ 2:
+
+utworz kolumne ma byc pierwsza i w 4 wierszu dzisiejsza data
+ALTER table klienci ADD COLUMN Samochodzik date first;
+update klienci set Samochodzik='2024-11-28' WHERE IdKlienta = 4;
+
+wyswietl max wartosc z idKlienta
+Select max(idKlienta) from klienci;
+
+zmiana typu i nazwy idklienta =>lp na daty
+ALTER TABLE klienci CHANGE COLUMN IdKlienta lp date;
+
+posortuj malejaco tabele po imieniu klienta
+SELECT * from klienci ORDER by ImieKlienta desc;
+
+wszystkich polakow francuzow niemcow z zakresu imienia klienta odliterki b do f
+SELECT * from klienci where kraj in('Polska','francja''USA') and ImieKlienta BETWEEN 'b' and 'f';
