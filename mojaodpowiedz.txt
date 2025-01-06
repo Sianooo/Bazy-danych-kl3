@@ -1,0 +1,17 @@
+dodaj kolumne nowy_rok z typem na koncu
+ALTER TABLE klienci add COLUMN nowy_rok date after kraj;
+
+w pierwszym czwartym i osmym wierszu w kolunie nowy rok dodaj dzisiejsza date, jutrzejsza,po jutrzejsza, pierszemu niemcowi zmien imie na Hans 
+
+UPDATE klienci set nowy_rok ='2025-01-02' WHERE IdKlienta=1;
+UPDATE klienci set ImieKlienta='Jonas' WHERE IdKlienta=4;
+
+wyswiel id imie miasto panstwo i posortuj malejaco po kolumnie miasto
+SELECT IdKlienta,ImieKlienta,Miasto,Kraj from klienci order by miasto desc;
+
+wyswietl najwieksza wartosc z kolumny idKlienta
+SELECT MAX(IdKlienta) from klienci;
+
+alter table klienci drop COLUMN nowy_rok;
+
+

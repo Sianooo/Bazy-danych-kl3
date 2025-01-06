@@ -188,5 +188,37 @@ SELECT COUNT(DISTINCT kraj) from klienci; => sprawdza ile wierszy spelnia okresl
 
 SELECT COUNT(IdKlienta) from klienci WHERE Kraj='Polska';
 
+ALIAS:
+
+select IdKlienta as Lp from klienci;=> wypisze Lp zamiast IdKlienta (podmienia je)
+
+select IdKlienta as ID,NazwiskoKlienta as name, kraj as country from klienci;=> zmienia wiecej niz 1 
+
+select IdKlienta as ID, concat(ImieKlienta,'',NazwiskoKlienta)as name,kraj as country from klienci;
 
 
+
+
+
+KLUCZE:
+
+create table Obywatel(Id int not null PRIMARY KEY,Imie text not null,Nazwisko text not null,Wiek int,Adres text); 
+
+create table Human(Id int not null,Imie varchar(222) not null,Nazwisko text not null,Wiek int,Adres varchar(222),CONSTRAINT PK_Human PRIMARY Key (Id,Imie));=> klucz glowny nie moze byc tekstem
+
+=dodawanie do istniejacej tabeli klucz glowny :
+
+alter table klienci ADD PRIMARY Key (IdKlienta);
+
+=usuwanie klucza glownego:
+
+alter table klienci drop primary key
+aby usunac primary kry nalezy wylaczyc atoincrement!
+
+wypisywanie kluczow obcych :
+
+show index from human;
+
+zadanie:
+
+alter table klienci ADD PRIMARY key (IdKlienta);
