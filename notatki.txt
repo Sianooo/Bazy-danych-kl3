@@ -213,7 +213,7 @@ alter table klienci ADD PRIMARY Key (IdKlienta);
 =usuwanie klucza glownego:
 
 alter table klienci drop primary key
-aby usunac primary kry nalezy wylaczyc atoincrement!
+aby usunac primary key nalezy wylaczyc autoincrement!
 
 wypisywanie kluczow obcych :
 
@@ -222,3 +222,47 @@ show index from human;
 zadanie:
 
 alter table klienci ADD PRIMARY key (IdKlienta);
+
+
+PYTANIE:
+
+=utworzenie kolumnena samym koncu o dowolnej nazwie,typ:daty,8 wiersz dzisiejsza data
+
+alter table klienci add COLUMN data date,
+update klienci set data='2025-01-09' WHERE IdKlienta=8;
+
+=srednia zawartosc idKlienta
+
+SELECT avg(IdKlienta) FROM klienci;
+
+=zmiana typu danych date
+
+ALTER TABLE klienci CHANGE COLUMN data data text;
+
+=usunac kolumne data
+
+ALTER TABLE klienci DROP COLUMN data;
+
+
+
+
+FOREIGN KEY:(MUSI BYC TAKI SAM TYP DANYCH CO W PRIMARY KEY NP:INT ZAZWYCZAJ
+
+
+
+CREATE table uzytkownik(Id int not null primary key,Wiek int not null,FOREIGN key(Wiek) REFERENCES klienci(IdKlienta));
+
+dodawanie klucza obcego juz w istniejacej tabeli
+
+
+alter table uczen2 add CONSTRAINT Fk_Sigma FOREIGN key (Id) REFERENCES uczen (Id);
+
+!!!jak chcemy usunac relacje najpierw usuwamy klucz obcy pozniej glowny!!!
+
+alter table uczen2 drop FOREIGN KEY Fk_Sigma;
+
+
+
+
+
+
