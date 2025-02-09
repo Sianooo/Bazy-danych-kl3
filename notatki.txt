@@ -263,6 +263,41 @@ alter table uczen2 drop FOREIGN KEY Fk_Sigma;
 
 
 
+Zadanie lekcja :
+
+
+CREATE table Nauczyciel(Id int not null primary key,Imie text,Nazwisko text, Klasa int);
+CREATE table Uczen(Id int not null primary key,Imie text,Nazwisko text,Nauczyciel int,CONSTRAINT fk_sigma FOREIGN key (Nauczyciel)REFERENCES Nauczyciel(Id));
+
+
+Odpowiedz sikory xd:
+
+-wyswietl wszytskich polakow lub niemcow lub amerykanow ktorzy mieszkaja w miescie z ostatnia litera a 
+a ich nazwisko miesci sie w zakresie od litere a do p
+
+select * from klienci where kraj in('Polska','Niemcy','USA') and miasto like "%a" and NazwiskoKlienta between 'a'and 'p';
+
+
+-z dwoch kolumn utworz alias z imie i nazwisko na (ziomek)
+
+select concat (ImieKlienta,' ',NazwiskoKlienta) as ziomek from klienci;
+
+
+-zamien nazwe kolumny i typ kraj na liczba i typ int 
+
+alter table klienci change column kraj liczba int;
+
+
+-na poczatek tabele o nazwie dowolna 8 wiersz samochod
+
+alter table klienci add column Cos text first; 
+update klienci set cos="Samochod" WHERE IdKlienta=8; 
+
+
+- select avg(IdKlienta) from klienci
+
+
+
 
 
 
