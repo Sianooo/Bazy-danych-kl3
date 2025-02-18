@@ -272,6 +272,8 @@ CREATE table Uczen(Id int not null primary key,Imie text,Nazwisko text,Nauczycie
 
 Odpowiedz sikory xd:
 
+
+
 -wyswietl wszytskich polakow lub niemcow lub amerykanow ktorzy mieszkaja w miescie z ostatnia litera a 
 a ich nazwisko miesci sie w zakresie od litere a do p
 
@@ -298,6 +300,65 @@ update klienci set cos="Samochod" WHERE IdKlienta=8;
 
 
 
+Odpowiedz Sanka :
+
+
+
+-utworz db, dwie tabele do istniejacych tabel dodaj klucz glowny i obcy i utworz relacje
+
+create database szkola;
+
+create table Nauczyciel(Id int not null PRIMARY KEY,Nazwisko text,Klasa int);
+
+CREATE TABLE Uczen(Id int not null PRIMARY KEY,Nazwisko text, Nauczyciel int,CONSTRAINT fk_klucz FOREIGN KEY (Nauczyciel) REFERENCES Nauczyciel(Id));
+
+
+-zamien wszystkich francuzow na Haiti
+
+UPDATE klienci set Kraj="Haiti" WHERE Kraj="Francja";
+
+
+-wyswietl najnizsza wartosc z tabeli zamowienie i kolumny wartosc zamowenia
+
+SELECT MIN(WartoscZamowienia) from zamowienia;
+
+
+-w tabeli klienci za kolumna idKlienta dodaj nowa kolumne o nazwie nowa typ danych date i w 12 wierszu dodaj dzisiejsza date
+
+ALTER table klienci ADD COLUMN nowa date after ImieKlienta;
+
+UPDATE klienci set nowa='2025-02-13' WHERE IdKlienta=12;
+
+
+-imie, nazwisko klienta i utworzyli kolumne o nazwie ziomus
+
+
+SELECT concat(ImieKlienta,' ',NazwiskoKlienta) as ziomus from klienci;
+
+
+INNER JOIN:
+
+
+SELECT NazwaTabeli.NazwaKolumny FROM NazwaTablei INNER JOIN NazwaDrugiejTabeli ON NazwaTabeli.NazwaKolumny = NazwaDrugiejTabeli.NazwaKolumny;
+
+
+!!!PRZYKLAD!!!
+
+
+SELECT klienci.IdKlienta from klienci INNER JOIN zamowienia ON klienci.IdKlienta = zamowienia.IdKlienta;=>WYPISYWANIE ID
+
+SELECT klienci.IdKlienta,klienci.ImieKlienta,klienci.NazwiskoKlienta from klienci INNER JOIN zamowienia ON klienci.IdKlienta = zamowienia.IdKlienta;=>WYPISYWANIE ID,IMIE,NAZWISKO KLIENTA
+
+SELECT * from klienci INNER JOIN zamowienia ON klienci.kraj = zamowienia.kraj;=>WYPISANIE WSZYSTKIEGO( CALA TABELA )
+
+SELECT zamowienia.IdZamowienia,klienci.ImieKlienta,zamowienia.datazamowienia from zamowienia INNER JOIN klienci ON zamowienia.idklienta=klienci.idklienta;
+
+
+
+LEFT JOIN:
+
+
+SELECT klienci.ImieKlienta,klienci.NazwiskoKlienta,zamowienia.WartoscZamowienia,zamowienia.Miasto from klienci left join zamowienia on klienci.kraj=zamowienia.kraj order by klienci.NazwiskoKlienta desc;
 
 
 
