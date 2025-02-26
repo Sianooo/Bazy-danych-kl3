@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 06 Lut 2025, 12:06
+-- Czas generowania: 19 Lut 2025, 19:47
 -- Wersja serwera: 10.4.27-MariaDB
--- Wersja PHP: 8.1.12
+-- Wersja PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `danefirmy`
+-- Baza danych: `f`
 --
 
 -- --------------------------------------------------------
@@ -43,18 +43,18 @@ CREATE TABLE `klienci` (
 --
 
 INSERT INTO `klienci` (`IdKlienta`, `ImieKlienta`, `NazwiskoKlienta`, `OsobaKontaktowa`, `Adres`, `Miasto`, `KodPocztowy`, `Kraj`) VALUES
-(1, 'Jan', 'Kowalski', 'Marta Kowalska, Telefon: 123-456-789, Email: marta.kowalska@example.com', 'ul. Przykładowa 1', 'Warszawa', '00-001', 'Polska'),
-(2, 'Katarzyna', 'Nowak', 'Adam Nowak, Telefon: 987-654-321, Email: adam.nowak@example.com', 'ul. Testowa 2', 'Szczecin', '30-001', 'Polska'),
-(3, 'Michał', 'Wiśniewski', 'Ewa Wiśniewska, Telefon: 456-789-123, Email: ewa.wisniewska@example.com', 'ul. Fikcyjna 3', 'Sopot', '50-001', 'Polska'),
-(4, 'Hans', 'Müller', 'Anna Müller, Telefon: 030-1234567, Email: anna.mueller@example.com', 'Musterstraße 1', 'Berlin', '10115', 'Niemcy'),
-(5, 'Sophie', 'Schmidt', 'Thomas Schmidt, Telefon: 040-7654321, Email: thomas.schmidt@example.com', 'Beispielweg 2', 'Hamburg', '20095', 'Niemcy'),
-(6, 'Maximilian', 'Fischer', 'Laura Fischer, Telefon: 089-123456, Email: laura.fischer@example.com', 'Straße 3', 'Monachium', '80331', 'Niemcy'),
-(7, 'John', 'Smith', 'Emily Johnson, Telefon: 212-555-1234, Email: emily.johnson@example.com', '123 Main St', 'Washington', '10001', 'USA'),
-(8, 'Michael', 'Johnson', 'Sarah Parker, Telefon: 310-555-5678, Email: sarah.parker@example.com', '456 Elm St', 'Phoenix', '90001', 'USA'),
-(9, 'Jessica', 'Williams', 'David Brown, Telefon: 202-555-8765, Email: david.brown@example.com', '789 Maple Ave', 'Chicago', '20001', 'USA'),
-(10, 'Jean', 'Dupont', 'Claire Martin, Telefon: 01-23-45-67-89, Email: claire.martin@example.com', '1 Rue de Exemple', 'Marsylia', '75001', 'Francja'),
-(11, 'Marie', 'Dubois', 'Pierre Lefevre, Telefon: 04-56-78-90-12, Email: pierre.lefevre@example.com', '2 Avenue de Test', 'Tuluza', '69001', 'Francja'),
-(12, 'Louis', 'Martin', 'Sophie Lambert, Telefon: 03-12-34-56-78, Email: sophie.lambert@example.com', '3 Boulevard de Fictif', 'Nicea', '13001', 'Francja');
+(1, 'Adam', 'Nowicki', 'Monika Nowicka, Telefon: 321-654-987, Email: monika.nowicka@example.com', 'ul. Wzorcowa 1', 'Gdańsk', '80-001', 'Polska'),
+(2, 'Zofia', 'Kaczmarek', 'Tomasz Kaczmarek, Telefon: 654-321-789, Email: tomasz.kaczmarek@example.com', 'ul. Przykładowa 5', 'Łódź', '90-001', 'Polska'),
+(3, 'Piotr', 'Wojciechowski', 'Kinga Wojciechowska, Telefon: 987-321-654, Email: kinga.wojciechowska@example.com', 'ul. Wirtualna 3', 'Kraków', '31-001', 'Polska'),
+(4, 'Lukas', 'Schneider', 'Marie Schneider, Telefon: 040-7654321, Email: marie.schneider@example.com', 'Bahnhofstraße 7', 'Hamburg', '20099', 'Niemcy'),
+(5, 'Emilia', 'Schulz', 'Robert Schulz, Telefon: 030-9876543, Email: robert.schulz@example.com', 'Hauptstraße 9', 'Berlin', '10179', 'Niemcy'),
+(6, 'Felix', 'Meier', 'Lena Meier, Telefon: 089-5432167, Email: lena.meier@example.com', 'Ringstraße 12', 'München', '80333', 'Niemcy'),
+(7, 'James', 'Brown', 'Sophia Davis, Telefon: 617-555-4321, Email: sophia.davis@example.com', '987 Park Ave', 'Boston', '02118', 'USA'),
+(8, 'William', 'Taylor', 'Olivia Clark, Telefon: 415-555-6789, Email: olivia.clark@example.com', '789 Market St', 'San Francisco', '94103', 'USA'),
+(9, 'Elizabeth', 'Wilson', 'George Hall, Telefon: 718-555-3456, Email: george.hall@example.com', '654 Broadway', 'New York', '10003', 'USA'),
+(10, 'Antoine', 'Durand', 'Camille Dubois, Telefon: 02-98-76-54-32, Email: camille.dubois@example.com', '4 Rue du Test', 'Bordeaux', '33000', 'Francja'),
+(11, 'Chloé', 'Moreau', 'Alexandre Garnier, Telefon: 03-21-54-76-98, Email: alexandre.garnier@example.com', '6 Allée des Champs', 'Lille', '59000', 'Francja'),
+(12, 'Lucas', 'Rousseau', 'Julie Bernard, Telefon: 01-45-67-89-10, Email: julie.bernard@example.com', '10 Avenue des Arbres', 'Lyon', '69001', 'Francja');
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ INSERT INTO `klienci` (`IdKlienta`, `ImieKlienta`, `NazwiskoKlienta`, `OsobaKont
 
 CREATE TABLE `zamowienia` (
   `IdKlienta` int(11) DEFAULT NULL,
-  `IdZamowienia` int(11) NOT NULL,
+  `IdZamowienia` int(11) DEFAULT NULL,
   `DataZamowienia` date DEFAULT NULL,
   `WartoscZamowienia` double DEFAULT NULL,
   `Miasto` text DEFAULT NULL,
@@ -76,28 +76,18 @@ CREATE TABLE `zamowienia` (
 --
 
 INSERT INTO `zamowienia` (`IdKlienta`, `IdZamowienia`, `DataZamowienia`, `WartoscZamowienia`, `Miasto`, `Kraj`) VALUES
-(1, 1, '2025-01-04', 100, 'Krakow', 'Polska'),
-(2, 2, '2025-01-05', 150, 'Rzeszow', 'Polska'),
-(3, 3, '2025-03-04', 100, 'Przemysl', 'Polska'),
-(4, 4, '2025-01-11', 400, 'Berlin', 'Niemcy'),
-(5, 5, '2025-05-10', 350, 'Hamburg', 'Niemcy'),
-(6, 6, '2025-05-11', 200, 'Monachium', 'Niemcy'),
-(7, 7, '2025-01-12', 350, 'Paryz', 'Francja'),
-(8, 8, '2025-01-13', 500, 'Marsylia', 'Francja'),
-(9, 9, '2025-01-14', 450, 'Lyon', 'Francja'),
-(10, 10, '2025-01-15', 600, 'Nowy Jork', 'USA'),
-(11, 11, '2025-01-16', 550, 'Los Angeles', 'USA'),
-(12, 12, '2025-01-17', 700, 'Chicago', 'USA');
-
---
--- Indeksy dla zrzutów tabel
---
-
---
--- Indeksy dla tabeli `zamowienia`
---
-ALTER TABLE `zamowienia`
-  ADD PRIMARY KEY (`IdZamowienia`);
+(1, 1, '2024-12-04', 18.58, 'Zakopane', 'Polska'),
+(2, 2, '2024-11-05', 15.45, 'Gdansk', 'Polska'),
+(3, 3, '2024-10-06', 22.3, 'Rzeszow', 'Polska'),
+(4, 4, '2024-09-07', 25.6, 'Frankfurt', 'Niemcy'),
+(5, 5, '2024-12-08', 32.9, 'Stuttgart', 'Niemcy'),
+(6, 6, '2024-04-09', 12.4, 'Dortmund', 'Niemcy'),
+(7, 7, '2024-01-13', 26.99, 'Detroit', 'USA'),
+(8, 8, '2024-03-14', 20.8, 'Los Angeles', 'USA'),
+(9, 9, '2024-12-15', 23.5, 'Los santos', 'USA'),
+(10, 10, '2024-03-10', 18.75, 'Paris', 'Francja'),
+(11, 11, '2024-02-11', 22, 'Tuluza', 'Francja'),
+(12, 12, '2024-12-12', 144.5, 'Marsylia', 'Francja');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

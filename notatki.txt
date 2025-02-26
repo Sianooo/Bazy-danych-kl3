@@ -361,4 +361,57 @@ LEFT JOIN:
 SELECT klienci.ImieKlienta,klienci.NazwiskoKlienta,zamowienia.WartoscZamowienia,zamowienia.Miasto from klienci left join zamowienia on klienci.kraj=zamowienia.kraj order by klienci.NazwiskoKlienta desc;
 
 
+ODPOWIEDZ:
+
+-SELECT COUNT(DISTINCT kraj) from klienci;
+
+-za misto utworz nowa kolumna o nazwie nowa 
+
+alter table klienci ADD COLUMN nowa text after Miasto;
+update klienci set nowa="5i@<>";
+
+-wyswietl lewa kolumna klienci prawa zamowienia, lewa idKlienta, prawa wartoscZamowienia
+
+SELECT klienci.IdKlienta , zamowienia.WartoscZamowienia from klienci left join zamowienia on zamowienia.IdKlienta=klienci.IdKlienta;
+
+-idKlienta klucz glowny,zamowienia klucz obcy
+
+alter table klienci add PRIMARY key (idKlienta);
+alter table zamowienia ADD CONSTRAINT fk_klucz FOREIGN key (IdKlienta) REFERENCES klienci(IdKlienta);
+
+-alter table zamowienia drop foreign key fk_klucz;
+
+
+
+RIGHT JOIN:
+
+SELECT klienci.*, zamowienia.* from klienci RIGHT JOIN zamowienia on klienci.Miasto= zamowienia.Miasto;
+
+SELECT * from klienci right join zamowienia on zamowienia.Miasto=klienci.Miasto;
+
+FULL JOIN=FULL OUTER=JOIN
+
+
+FULL JOIN:
+
+select * from klienci join zamowienia on zamowienia.Miasto=klienci.Miasto;
+
+ZADANIE:
+
+Create DATABASE krakow;
+CREATE TABLE dzielnice(Lp int not null,NazwaDzielnicy text,LiczbaMieszkancow int);
+SELECT * FROM `dzielnice`
+INSERT INTO dzielnice VALUES(1,'Nowa Huta',50000);
+INSERT INTO dzielnice VALUES(2,'Bronowice',40000);
+INSERT INTO dzielnice VALUES(3,'Kazimierz',100000);
+INSERT INTO dzielnice VALUES(4,'Borek',30000);
+SELECT * FROM `dzielnice`
+SELECT * from dzielnice ORDER by NazwaDzielnicy desc;
+SELECT max(LiczbaMieszkancow) from dzielnice;
+SELECT avg(LiczbaMieszkancow) from dzielnice;
+select Lp as liczba,NazwaDzielnicy as dzielnica, LiczbaMieszkancow as mieszkancy from dzielnice;
+alter table dzielnice drop column NazwaDzielnicy;
+drop database krakow;
+
+
 
