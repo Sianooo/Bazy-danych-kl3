@@ -414,4 +414,36 @@ alter table dzielnice drop column NazwaDzielnicy;
 drop database krakow;
 
 
+ODPOWIEDZ MICHAL:
+
+=wyswietl nazwiska w sposob malejacy
+
+SELECT NazwiskoKlienta from klienci ORDER BY NazwiskoKlienta DESC;
+
+=klient z id=4 wstaw mu imie na adolf
+
+UPDATE klienci set ImieKlienta='Adolf' WHERE IDKlienta=4;
+
+=wyswietl cala lewa tabela i elementy pasujace z prawej szukac po miasto
+
+SELECT *from klienci left join zamowienia on klienci.Miasto=zamowienia.Miasto;
+
+=kolumna idKlienta klucz glowny w id zamowieniach klucz obcy
+
+ALTER table klienci ADD PRIMARY KEY (IDKlienta);
+ALTER table zamowienia ADD CONSTRAINT fk_sigma FOREIGN KEY (IDKlienta) REFERENCES klienci(IDKlienta);
+
+=wyswietl 4 pierwsze wiersze z tabeli zamowienia
+
+ SELECT * from zamowienia limit 4;
+
+
+
+UNION:(laczenie 2 selectow ze soba)
+
+
+SELECT IdKlienta from klienci UNION SELECT IdKlienta from zamowienia;
+
+SELECT IdKlienta,Miasto from klienci UNION SELECT IdKlienta,Miasto from zamowienia;
+
 
